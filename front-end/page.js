@@ -24,7 +24,7 @@ const h=api.then(data=>{for (let i=0;i<data.length;i++)
         creaDescription.textContent=data[i].description;
         creaTitre.textContent=data[i].name;
         creaImg.src=data[i].imageUrl;
-        creaPrix.textContent="Prix: "+data[i].price;
+        creaPrix.textContent="Prix: "+data[i].price.toString().substr(0,2)+","+data[i].price.toString().substr(2)+" $";
 
        
     }
