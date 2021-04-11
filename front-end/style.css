@@ -1,0 +1,49 @@
+body{
+    margin: 0px;
+    height:0px;
+    width: 100%;
+}
+nav{
+
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+nav img{
+    width: 100px;
+    height: auto;
+ 
+}
+nav a{
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+#contain{
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#contain p{
+    font-weight: bold;
+
+}
+figure{
+border-radius: 10px;
+background-color:cornflowerblue;
+width: 300px;
+}
+
+figure img{
+    width: 300px;
+    height: auto;
+}
+
+figure h3{
+    color: white;
+}
