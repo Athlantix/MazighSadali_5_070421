@@ -5,11 +5,13 @@ body{
 }
 nav{
 
-    background-color: black;
+    background-color:#f3e9f1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    box-shadow: 1px 10px 6px rgb(204, 204, 204);
+    margin-bottom: 50px;
 }
 nav img{
     width: 100px;
@@ -17,7 +19,7 @@ nav img{
  
 }
 nav a{
-    color: white;
+    color: black;
     font-size: 20px;
     text-decoration: none;
 }
@@ -29,14 +31,12 @@ nav a{
     justify-content: center;
 }
 
-#contain p{
-    font-weight: bold;
 
-}
 figure{
+
 border-radius: 10px;
-background-color:cornflowerblue;
 width: 300px;
+box-shadow: 3px 6px 6px grey;
 }
 
 figure img{
@@ -45,5 +45,10 @@ figure img{
 }
 
 figure h3{
-    color: white;
+    color:black;
+}
+
+figure p:nth-child(3){
+   font-weight: bold;
+
 }
