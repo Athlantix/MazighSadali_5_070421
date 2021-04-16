@@ -61,3 +61,18 @@ button{
     margin-bottom: 20px;
 }
 
+
+
+/*page produit*/
+
+#image{
+    width: 500px;
+    height: 300px;
+}
+#image img{
+    width: 80%;
+    height: auto;
+}
+#contain_produit{
+    display: flex;
+}

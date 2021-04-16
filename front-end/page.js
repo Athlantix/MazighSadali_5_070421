@@ -31,7 +31,7 @@ api.then(data=>{for (let i=0;i<data.length;i++)
         creaImg.src=data[i].imageUrl;
         creaPrix.textContent="Prix: "+data[i].price.toString().substr(0,2)+","+data[i].price.toString().substr(2)+" $";
         creaId.href="produit.html?"+data[i]._id;
-        creaId.textContent="Acheter";
+        creaId.textContent="Détails";
        
     }
     
