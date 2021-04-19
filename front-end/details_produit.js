@@ -20,6 +20,11 @@ const creaBouton=document.createElement('button');
 const creaQuanititePlus=document.createElement('button');
 const creaQuanititeMoins=document.createElement('button');
 const creaQuanitite=document.createElement('p');
+const creaSelect=document.createElement('select');
+const creaCouleur=document.createElement('p');
+
+
+
 
 
 const details=document.getElementById('details');
@@ -33,12 +38,16 @@ image.appendChild(creaImg);
 details.appendChild(creaTitre);
 details.appendChild(creaDescription);
 details.appendChild(creaId);
+details.appendChild(creaQuanitite);
 details.appendChild(creaQuanititePlus);
 details.appendChild(creaQuanititeMoins);
+details.appendChild(creaCouleur);
+details.appendChild(creaSelect);
 details.appendChild(creaPrix);
 details.appendChild(creaBouton);
-details.appendChild(creaQuanitite);
 creaBouton.appendChild(creaId);
+
+
 
  creaDescription.textContent=data.description;
  creaTitre.textContent=data.name;
@@ -48,19 +57,31 @@ creaBouton.appendChild(creaId);
  creaId.textContent="Acheter";
  creaQuanititePlus.textContent="+";
  creaQuanititeMoins.textContent="-";
+ creaQuanitite.textContent="Quantité: "+quantite;
+ creaCouleur.textContent="Couleur";
 
  creaQuanititePlus.addEventListener("click",function(){
      quantite++;
      let calcul=prix*quantite;
    creaPrix.textContent="Prix: "+calcul/100+","+data.price.toString().substr(2)+" $";
-  
+   creaQuanitite.textContent="Quantité: "+quantite;
+
  });
  
  creaQuanititeMoins.addEventListener("click",function(){
     quantite--;
     let calcul=prix*quantite;
    creaPrix.textContent="Prix: "+calcul/100+","+data.price.toString().substr(2)+" $";
-});
+   creaQuanitite.textContent="Quantité: "+quantite;
+
+  });
+
+ for (let i=0;i<data.colors.length;i++){
+  const creaOption=document.createElement('option');
+  creaSelect.appendChild(creaOption);
+  creaOption.textContent=data.colors[i];
+
+ }
 
 });
 
