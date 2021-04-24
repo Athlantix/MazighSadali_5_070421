@@ -113,8 +113,11 @@ creaBouton.addEventListener("click",function(e){
     option:selectionOption,
   };
   produitPanierTab.push(produitPanier);
+  localStorage.setItem("produit",JSON.stringify(produitPanierTab));
 })
-console.log(produitPanierTab);
+
 
 });
+
+let u=JSON.parse(localStorage.getItem("produit"));
 
