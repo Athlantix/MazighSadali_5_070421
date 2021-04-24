@@ -1,12 +1,13 @@
-
+//récup url
 const urlId=window.location.search;
 const recup= document.getElementById('details');
 
 
 
 const apiUrl=fetch('http://localhost:3000/api/teddies/'+urlId.slice(1))
-.then(response=>response.json());
+.then(response=>response.json())
 
+//création/implémentation d'éléments 
 apiUrl.then(data=>{
 
 let prix=data.price;
@@ -24,15 +25,10 @@ const creaSelect=document.createElement('select');
 const creaCouleur=document.createElement('p');
 
 
-
-
-
 const details=document.getElementById('details');
 const image=document.getElementById('image');
 
 image.appendChild(creaImg);
-
-
 
 
 details.appendChild(creaTitre);
@@ -48,7 +44,7 @@ details.appendChild(creaBouton);
 creaBouton.appendChild(creaId);
 
 
-
+//intégration des données API dans le DOM
  creaDescription.textContent=data.description;
  creaTitre.textContent=data.name;
  creaImg.src=data.imageUrl;
@@ -60,6 +56,9 @@ creaBouton.appendChild(creaId);
  creaQuanitite.textContent="Quantité: "+quantite;
  creaCouleur.textContent="Couleur";
 
+ creaPrix.id="prix";
+
+//Gestion quantité/prix des boutons "+"" et "-"
  creaQuanititePlus.addEventListener("click",function(){
      quantite++;
      let calcul=prix*quantite;
@@ -68,20 +67,47 @@ creaBouton.appendChild(creaId);
 
  });
  
- creaQuanititeMoins.addEventListener("click",function(){
+ creaQuanititeMoins.addEventListener("click",function (){
     quantite--;
     let calcul=prix*quantite;
-   creaPrix.textContent="Prix: "+calcul/100+","+data.price.toString().substr(2)+" $";
-   creaQuanitite.textContent="Quantité: "+quantite;
+   creaPrix.textContent="Prix: "+Math.max(calcul/100,0)+","+data.price.toString().substr(2)+" $";
+   creaQuanitite.textContent="Quantité: "+Math.max(quantite,0);
 
   });
 
+//génération des options dynamiquement
  for (let i=0;i<data.colors.length;i++){
   const creaOption=document.createElement('option');
   creaSelect.appendChild(creaOption);
   creaOption.textContent=data.colors[i];
 
  }
+
+ //récuperation prix et quantité
+
+ const recupPrix=document.getElementById("prix").textContent.slice(6);
+const conversionPrix=parseFloat(recupPrix)*100;
+
+
+
+produitPanierTab=[];
+//bouton acheter event
+creaBouton.addEventListener("click",function(e){
+  e.preventDefault();
+ 
+  //recuperation selection
+  let selectionOption=creaSelect.options[creaSelect.selectedIndex].value;
+ 
+
+  let produitPanier={
+    image:data.imageUrl,
+    nom:data.name,
+    prix:conversionPrix,
+    option:selectionOption,
+  };
+  produitPanierTab.push(produitPanier);
+})
+console.log(produitPanierTab);
 
 });
 
