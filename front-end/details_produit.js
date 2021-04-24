@@ -57,6 +57,7 @@ creaBouton.appendChild(creaId);
  creaCouleur.textContent="Couleur";
 
  creaPrix.id="prix";
+ creaQuanitite.id="quantite";
 
 //Gestion quantité/prix des boutons "+"" et "-"
  creaQuanititePlus.addEventListener("click",function(){
@@ -83,10 +84,6 @@ creaBouton.appendChild(creaId);
 
  }
 
- //récuperation prix et quantité
-
- const recupPrix=document.getElementById("prix").textContent.slice(6);
-const conversionPrix=parseFloat(recupPrix)*100;
 
 
 
@@ -94,7 +91,16 @@ produitPanierTab=[];
 //bouton acheter event
 creaBouton.addEventListener("click",function(e){
   e.preventDefault();
+  
+ //récuperation prix et quantité
  
+  const recupPrix=document.getElementById("prix").textContent.slice(6);
+  const conversionPrix=parseFloat(recupPrix)*100;
+
+  const recupQuantite=document.getElementById("quantite").textContent.slice(10);
+  const conversionQuantite=parseFloat(recupQuantite);
+  console.log(conversionQuantite);
+  
   //recuperation selection
   let selectionOption=creaSelect.options[creaSelect.selectedIndex].value;
  
@@ -102,6 +108,7 @@ creaBouton.addEventListener("click",function(e){
   let produitPanier={
     image:data.imageUrl,
     nom:data.name,
+    quantite:conversionQuantite,
     prix:conversionPrix,
     option:selectionOption,
   };
