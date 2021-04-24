@@ -87,7 +87,7 @@ creaBouton.appendChild(creaId);
 
 
 
-produitPanierTab=[];
+
 //bouton acheter event
 creaBouton.addEventListener("click",function(e){
   e.preventDefault();
@@ -112,12 +112,28 @@ creaBouton.addEventListener("click",function(e){
     prix:conversionPrix,
     option:selectionOption,
   };
-  produitPanierTab.push(produitPanier);
-  localStorage.setItem("produit",JSON.stringify(produitPanierTab));
+
+ 
+
+let produitRecup=JSON.parse(localStorage.getItem("produit"));
+
+if(produitRecup){
+  produitRecup.push(produitPanier);
+  localStorage.setItem("produit",JSON.stringify(produitRecup));
+
+}
+else {
+  produitRecup=[];
+  produitRecup.push(produitPanier);
+  localStorage.setItem("produit",JSON.stringify(produitRecup));
+  
+  
+}
 })
 
 
+})
+.catch(function() {
+  recup.textContent="error";
 });
-
-let u=JSON.parse(localStorage.getItem("produit"));
 
