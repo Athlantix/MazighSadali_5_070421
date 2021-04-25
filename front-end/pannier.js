@@ -87,7 +87,7 @@ if (!(
     && zipcodeRegex.test(zipcode)
     && city.length > 1
   )) {
-    alert("Veuillez remplir les champs correctements avant de procéder au paiement")
+    alert("Veuillez remplir correctement les champs")
   
   }
   else{alert("ok")};

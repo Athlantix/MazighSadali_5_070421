@@ -69,11 +69,13 @@ creaBouton.appendChild(creaId);
  });
  
  creaQuanititeMoins.addEventListener("click",function (){
+   if(quantite>0){
     quantite--;
     let calcul=prix*quantite;
    creaPrix.textContent="Prix: "+Math.max(calcul/100,0)+","+data.price.toString().substr(2)+" $";
    creaQuanitite.textContent="Quantité: "+Math.max(quantite,0);
-
+    }
+    else{quantite=0;};
   });
 
 //génération des options dynamiquement
