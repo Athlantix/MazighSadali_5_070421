@@ -93,6 +93,7 @@ creaBouton.addEventListener("click",function(e){
   e.preventDefault();
   
  //récuperation prix et quantité
+  alert("Ajouté au panier");
  
   const recupPrix=document.getElementById("prix").textContent.slice(6);
   const conversionPrix=parseFloat(recupPrix)*100;
@@ -118,6 +119,7 @@ creaBouton.addEventListener("click",function(e){
 let produitRecup=JSON.parse(localStorage.getItem("produit"));
 
 if(produitRecup){
+
   produitRecup.push(produitPanier);
   localStorage.setItem("produit",JSON.stringify(produitRecup));
 

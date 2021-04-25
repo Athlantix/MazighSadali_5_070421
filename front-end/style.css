@@ -76,3 +76,36 @@ button{
 #contain_produit{
     display: flex;
 }
+
+#contain_panier figure {
+    width: 50%;
+    height: auto;
+    display: flex;
+}
+#form{
+width: 100%;
+height: auto;
+}
+
+form{
+    width: 100%;
+    height: auto;
+}
+
+.form-flex{
+width: 80%;
+height: auto;
+display: flex;  
+justify-content: center;
+}
+
+label{
+    margin: 10px;
+}
+input{
+    margin: 10px;
+}
+
+form button {
+    text-align: center;
+}
