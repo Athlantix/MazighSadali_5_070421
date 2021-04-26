@@ -102,12 +102,12 @@ creaBouton.addEventListener("click",function(e){
 
   const recupQuantite=document.getElementById("quantite").textContent.slice(10);
   const conversionQuantite=parseFloat(recupQuantite);
-  console.log(conversionQuantite);
+
   
   //recuperation selection
   let selectionOption=creaSelect.options[creaSelect.selectedIndex].value;
  
-
+  //on défini le contenu du panier
   let produitPanier={
     image:data.imageUrl,
     nom:data.name,
@@ -120,19 +120,42 @@ creaBouton.addEventListener("click",function(e){
 
 let produitRecup=JSON.parse(localStorage.getItem("produit"));
 
-if(produitRecup){
 
+
+ 
+if(produitRecup){
+  let test=0;
+ for (let k=0;k<produitRecup.length;k++){
+
+ 
+  if(produitRecup[k].nom==produitPanier.nom
+    || produitRecup[k].nom==produitPanier.nom
+    && produitRecup[k].quantite==produitPanier.quantite
+    && produitRecup[k].couleur==produitPanier.couleur
+    && produitRecup[k].prix==produitPanier.prix){
+    test=1;
+  
+
+    
+  }
+ }
+ if (test==0){
   produitRecup.push(produitPanier);
   localStorage.setItem("produit",JSON.stringify(produitRecup));
+ }
 
+ 
 }
+
 else {
   produitRecup=[];
   produitRecup.push(produitPanier);
   localStorage.setItem("produit",JSON.stringify(produitRecup));
   
-  
-}
+  }
+
+
+
 })
 
 
