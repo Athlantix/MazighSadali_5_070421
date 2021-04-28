@@ -122,26 +122,46 @@ let produitRecup=JSON.parse(localStorage.getItem("produit"));
 
 
 
- 
+//vérification de la présence du même produit, sinon envoi
 if(produitRecup){
   let test=0;
+  let test2=0;
+  let modif=0;
+  let test3=0;
  for (let k=0;k<produitRecup.length;k++){
 
- 
-  if(produitRecup[k].nom==produitPanier.nom
-    || produitRecup[k].nom==produitPanier.nom
-    && produitRecup[k].quantite==produitPanier.quantite
-    && produitRecup[k].couleur==produitPanier.couleur
-    && produitRecup[k].prix==produitPanier.prix){
-    test=1;
-  
-
-    
+  if(produitRecup[k].nom!=produitPanier.nom){
+    console.log("pas egal");
+    test3=1;
   }
+ 
+  else if(produitRecup[k].nom==produitPanier.nom
+    && produitRecup[k].quantite==produitPanier.quantite
+    && produitRecup[k].option==produitPanier.option
+    ){
+    test=1;
+    console.log("pareil"); 
+  }
+
+   else if(produitRecup[k].nom==produitPanier.nom &&
+    produitRecup[k].quantite!=produitPanier.quantite ||
+     produitRecup[k].option!=produitPanier.option){
+      test2=1;
+      modif=k;
+
+      console.log("modif");
+    }
+
+ 
  }
- if (test==0){
-  produitRecup.push(produitPanier);
-  localStorage.setItem("produit",JSON.stringify(produitRecup));
+ console.log("test3"+test3)
+ if (test==0 && test2==1 ){
+   console.log(modif);
+  produitRecup.splice(modif,1);
+  pushLocal(produitRecup,produitPanier);
+ }
+ else if( test3==1 && test==0){
+  pushLocal(produitRecup,produitPanier);
  }
 
  
@@ -149,8 +169,7 @@ if(produitRecup){
 
 else {
   produitRecup=[];
-  produitRecup.push(produitPanier);
-  localStorage.setItem("produit",JSON.stringify(produitRecup));
+  pushLocal(produitRecup,produitPanier);
   
   }
 
@@ -164,3 +183,9 @@ else {
   recup.textContent="error";
 });
 
+
+//fonction d'envoi vers local storage
+function pushLocal(produitRecup,produitPanier){
+  produitRecup.push(produitPanier);
+  localStorage.setItem("produit",JSON.stringify(produitRecup));
+  }
