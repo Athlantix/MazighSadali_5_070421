@@ -109,6 +109,7 @@ creaBouton.addEventListener("click",function(e){
  
   //on défini le contenu du panier
   let produitPanier={
+    id:data._id,
     image:data.imageUrl,
     nom:data.name,
     quantite:conversionQuantite,
@@ -156,7 +157,6 @@ if(produitRecup){
  }
  console.log("test3"+test3)
  if (test==0 && test2==1 ){
-   console.log(modif);
   produitRecup.splice(modif,1);
   pushLocal(produitRecup,produitPanier);
  }
