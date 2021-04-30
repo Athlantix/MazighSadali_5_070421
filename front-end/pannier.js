@@ -15,10 +15,13 @@ for (let i=0;i<recupDetailProduit.length;i++){
     const couleur=document.createElement("p");
  
     const divData=document.createElement("div");
+    const divIMG=document.createElement("div");
 
     //attribution éléments
-    figure.appendChild(Image);
+   
     figure.appendChild(divData);
+    figure.appendChild(divIMG);
+    divIMG.appendChild(Image)
     divData.appendChild(titre);
     divData.appendChild(quantite);
     divData.appendChild(prix);
@@ -43,7 +46,7 @@ for (let i=0;i<recupDetailProduit.length;i++){
     //creation bouton
 const bouton=document.createElement("button");
 panier.appendChild(bouton);
-bouton.textContent="supprimer";
+bouton.textContent="Supprimer";
 
  
     //bouton event suppression
