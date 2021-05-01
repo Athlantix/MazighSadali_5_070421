@@ -183,27 +183,34 @@ form button{
 }
 
 @media screen and (min-width: 0px) and (max-width: 840px){
-#form{
-    background-color: #f3e9f1;
-    height: 720px;
-}
-.form-flex{
-     flex-direction: column;
-     align-items: center;
-  }
-  label{
-      display: flex;
-      justify-content: flex-start;
-  }
-h1{
-    display: flex;
-    margin: 0px;
-    padding: 0px;
-    justify-content: center;
-}
-p{
-    font-size: 14px;
-}
+    #form{
+        background-color: #f3e9f1;
+        height: 720px;
+    }
+    .form-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+    label{
+        display: flex;
+        justify-content: flex-start;
+    }
+    h1{
+        display: flex;
+        margin-bottom: 20px;
+        padding: 0px;
+        justify-content: center;
+
+    }
+    p{
+        font-size: 14px;
+    }
+  
+    #centrer-image img {
+        width: 400px;
+        height: auto;
+        
+    }
 }
 
 #contain_msg{
