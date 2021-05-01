@@ -71,8 +71,8 @@ bouton.textContent="Supprimer";
 const validation = document.getElementById('valider');
 
 
-validation.addEventListener("click",function(){
-
+validation.addEventListener("click",function(e){
+ e.preventDefault();
   formValid();
 
 })
@@ -100,7 +100,10 @@ if (!(
     alert("Veuillez remplir correctement les champs")
   
   }
-  else{alert("Votre commande va être traitée")};
+  else{
+    alert("Votre commande va être traitée");
+    window.location.href = 'remerciement.html';
+  }
 
   const formSend = {
     contact: {
