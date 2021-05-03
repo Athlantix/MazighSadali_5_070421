@@ -102,6 +102,7 @@ if (!(
   }
   else{
     alert("Votre commande va être traitée");
+    localStorage.removeItem("produit");
     window.location.href = 'remerciement.html';
   }
 
