@@ -13,12 +13,10 @@ for (let i=0;i<recupDetailProduit.length;i++){
     const quantite=document.createElement("p");
     const prix=document.createElement("p");
     const couleur=document.createElement("p");
- 
     const divData=document.createElement("div");
     const divIMG=document.createElement("div");
 
     //attribution éléments
-   
     figure.appendChild(divData);
     figure.appendChild(divIMG);
     divIMG.appendChild(Image)
@@ -31,34 +29,23 @@ for (let i=0;i<recupDetailProduit.length;i++){
 
 
     //attribution des données éléments
-    
     Image.src=recupDetailProduit[i].image;
     titre.textContent=recupDetailProduit[i].nom;
     quantite.textContent="Quantité: "+recupDetailProduit[i].quantite;
     couleur.textContent="Couleur: "+recupDetailProduit[i].option;
     prix.textContent="Prix: "+recupDetailProduit[i].prix/100+","+recupDetailProduit[i].prix.toString().substr(2)+" $";
   
-
-   
-   
-
 }
     //creation bouton
-const bouton=document.createElement("button");
-panier.appendChild(bouton);
-bouton.textContent="Supprimer";
+    const bouton=document.createElement("button");
+    panier.appendChild(bouton);
+    bouton.textContent="Supprimer";
 
- 
-    //bouton event suppression
-   
-   
+    //bouton event suppression 
     bouton.addEventListener("click",function(){
-     const body=document.getElementById("delete");
+    const body=document.getElementById("delete");
     body.removeChild(panier);
-
     localStorage.removeItem("produit");
-
-
 
 })
 
@@ -67,13 +54,11 @@ bouton.textContent="Supprimer";
 //----------Formulaire--------------------
 //fonction validation formulaire
 
-
 const validation = document.getElementById('valider');
-
 
 validation.addEventListener("click",function(e){
  e.preventDefault();
-  formValid();
+ formValid();
 
 })
 
@@ -89,14 +74,12 @@ function formValid(){
 
 
 
-if (!(
+  if (!(
     firstname.length > 1
     && lastname.length > 1
     && emailRegex.test(email)
     && adress.length > 6
-    && zipcodeRegex.test(zipcode)
-    && city.length > 1
-  )) {
+    && zipcodeRegex.test(zipcode))) {
     alert("Veuillez remplir correctement les champs")
   
   }
@@ -110,8 +93,8 @@ if (!(
     contact: {
       firstName: firstname,
       lastName: lastname,
-      address: adress + " " + zipcode,
       city: city,
+      address: adress + " " + zipcode,
       email: email,
     }
     
@@ -120,6 +103,6 @@ if (!(
   for (let i=0;i<recupDetailProduit.length;i++){
     product_id.push(recupDetailProduit[i].id);
   }
+
  console.log(product_id);
-  
 }
