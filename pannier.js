@@ -44,8 +44,7 @@ for (let i=0;i<recupDetailProduit.length;i++){
     //bouton event suppression 
     bouton.addEventListener("click",function(){
     const body=document.getElementById("delete");
-    body.removeChild(panier);
-    localStorage.removeItem("produit");
+      supprLocalStorage(body,panier);
 
 })
 
@@ -62,47 +61,3 @@ validation.addEventListener("click",function(e){
 
 })
 
-function formValid(){
-  const firstname = document.getElementById('firstname').value;
-  const lastname = document.getElementById('lastname').value;
-  const adress = document.getElementById('adress').value;
-  const zipcode = document.getElementById('zipcode').value;
-  const email = document.getElementById('email').value;
-  const city = document.getElementById('city').value;
-  const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
-  const zipcodeRegex = /[0-9]{5}(-[0-9]{4})?/;
-
-
-
-  if (!(
-    firstname.length > 1
-    && lastname.length > 1
-    && emailRegex.test(email)
-    && adress.length > 6
-    && zipcodeRegex.test(zipcode))) {
-    alert("Veuillez remplir correctement les champs")
-  
-  }
-  else{
-    alert("Votre commande va être traitée");
-    localStorage.removeItem("produit");
-    window.location.href = 'remerciement.html';
-  }
-
-  const formSend = {
-    contact: {
-      firstName: firstname,
-      lastName: lastname,
-      city: city,
-      address: adress + " " + zipcode,
-      email: email,
-    }
-    
-  }
-  let product_id=[];
-  for (let i=0;i<recupDetailProduit.length;i++){
-    product_id.push(recupDetailProduit[i].id);
-  }
-
- console.log(product_id);
-}
