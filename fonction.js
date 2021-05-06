@@ -3,7 +3,7 @@
 
   //fonction pour calcul des prix et implémentation dans le DOM
 function calculer(prix,quantite,creaPrix,creaQuantite,option1,quantite){
-          creaPrix.textContent="Prix: "+option1+","+prix.toString().substr(2)+" $";
+          creaPrix.textContent="Prix: "+option1+","+prix.toString().substr(-2)+" $";
           creaQuantite.textContent="Quantité: "+quantite;
     }
 

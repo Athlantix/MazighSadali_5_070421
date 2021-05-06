@@ -37,7 +37,7 @@ for (let i=0;i<recupDetailProduit.length;i++){
     titre.textContent=recupDetailProduit[i].nom;
     quantite.textContent="Quantité: "+recupDetailProduit[i].quantite;
     couleur.textContent="Couleur: "+recupDetailProduit[i].option;
-    prix.textContent="Prix: "+recupDetailProduit[i].prix/100+","+recupDetailProduit[i].prix.toString().substr(3)+" $";
+    prix.textContent="Prix: "+recupDetailProduit[i].prix/100+","+recupDetailProduit[i].prix.toString().substr(-2)+" $";
     total+=recupDetailProduit[i].prix;
 
 
@@ -45,7 +45,7 @@ for (let i=0;i<recupDetailProduit.length;i++){
     let creaTotal=document.createElement("p");
     panier.appendChild(creaTotal);
     creaTotal.id="total";
-    creaTotal.textContent="Total: "+total/100+","+total.toString().substr(3)+" $";
+    creaTotal.textContent="Total: "+total/100+","+total.toString().substr(-2)+" $";
     //creation bouton
     const bouton=document.createElement("button");
     panier.appendChild(bouton);
