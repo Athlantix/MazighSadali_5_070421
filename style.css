@@ -227,9 +227,12 @@ form button{
 }
 
 #centrer-image {
-    text-align: center;
-    
+    text-align: center;   
 }
+#centrer-image img{
+    width: 300px;
+}
+
 #total{
     text-align: center;
     font-weight:bold;

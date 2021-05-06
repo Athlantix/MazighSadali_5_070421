@@ -66,12 +66,12 @@ function verifLocalStorage(produitPanier){
 //fonction analyse des données du formulaire puis envoi
 
 function formValid(){
-    const firstname = document.getElementById('firstname').value;
-    const lastname = document.getElementById('lastname').value;
-    const adress = document.getElementById('adress').value;
-    const zipcode = document.getElementById('zipcode').value;
-    const email = document.getElementById('email').value;
-    const city = document.getElementById('city').value;
+    let firstname = document.getElementById('firstname').value;
+    let lastname = document.getElementById('lastname').value;
+    let adress = document.getElementById('adress').value;
+    let zipcode = document.getElementById('zipcode').value;
+    let email = document.getElementById('email').value;
+    let city = document.getElementById('city').value;
     const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
     const zipcodeRegex = /[0-9]{5}(-[0-9]{4})?/;
   
@@ -89,7 +89,7 @@ function formValid(){
     else{
       alert("Votre commande va être traitée");
       localStorage.removeItem("produit");
-      window.location.href = 'remerciement.html';
+      //window.location.href = 'remerciement.html';
     }
   
     const formSend = {
@@ -105,8 +105,28 @@ function formValid(){
     for (let i=0;i<recupDetailProduit.length;i++){
       product_id.push(recupDetailProduit[i].id);
     }
+    //------------------------
+    //method POST
+    fetch("http://localhost:3000/api/teddies", {
+   
+    method: "POST",
+    body: JSON.stringify({
+        formSend,product_id
+    }),
 
-   console.log(product_id);
+    headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+})
+  
+// Convertion JSON
+.then(response => response.json())
+  
+.then(json => console.log(json));
+
+
+    //______________
+
   }
 
   //fonction suppression pannier Dom,localStorage

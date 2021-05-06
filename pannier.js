@@ -1,3 +1,5 @@
+
+
 //récup DOM
 const panier=document.getElementById("contain_panier");
 
@@ -68,6 +70,31 @@ let validation = document.getElementById('valider');
 validation.addEventListener("click",function(e){
  e.preventDefault();
  formValid();
+
+ /*-------
+
+ const api=fetch('http://localhost:3000/api/teddies')
+ .then(response=> response.json());
+ 
+ // créations des produits 
+
+ let test={
+   titre:"oui",
+   body:"oui"
+ }
+
+ fetch('http://localhost:3000/api/teddies/',{
+ method:'POST',
+ body:JSON.stringify(test)
+})
+.then(function(response){
+ return response.JSON;
+})
+.then(function(data){
+ console.log("reponse data: "+data);
+})*/
+
+
 
 })
 

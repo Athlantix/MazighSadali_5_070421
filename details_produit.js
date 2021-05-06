@@ -83,6 +83,7 @@ apiUrl.then(data=>{
     creaBouton.addEventListener("click",function(e){
       e.preventDefault();
       
+      
     //récuperation prix et quantité
       alert("Ajouté au panier");
     
