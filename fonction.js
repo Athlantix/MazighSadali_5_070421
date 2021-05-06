@@ -1,16 +1,18 @@
 
 
-//fonction d'envoi vers local storage
-function pushLocal(produitRecup,produitPanier){
-    produitRecup.push(produitPanier);
-    localStorage.setItem("produit",JSON.stringify(produitRecup));
-  }
-  
+
   //fonction pour calcul des prix et implémentation dans le DOM
 function calculer(prix,quantite,creaPrix,creaQuantite,option1,quantite){
           creaPrix.textContent="Prix: "+option1+","+prix.toString().substr(2)+" $";
           creaQuantite.textContent="Quantité: "+quantite;
     }
+
+//fonction d'envoi vers local storage
+function pushLocal(produitRecup,produitPanier){
+  produitRecup.push(produitPanier);
+  localStorage.setItem("produit",JSON.stringify(produitRecup));
+}
+
     
   
   //fonction verification localStorage
@@ -98,13 +100,12 @@ function formValid(){
         address: adress + " " + zipcode,
         email: email,
       }
-      
     }
     let product_id=[];
     for (let i=0;i<recupDetailProduit.length;i++){
       product_id.push(recupDetailProduit[i].id);
     }
-  
+
    console.log(product_id);
   }
 

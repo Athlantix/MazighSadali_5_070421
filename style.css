@@ -230,3 +230,8 @@ form button{
     text-align: center;
     
 }
+#total{
+    text-align: center;
+    font-weight:bold;
+    font-size: 19px;
+}

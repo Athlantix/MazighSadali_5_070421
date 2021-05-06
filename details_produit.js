@@ -1,7 +1,7 @@
 //récup url
 const urlId=window.location.search;
-const recup= document.getElementById('details');
-const apiUrl=fetch('http://localhost:3000/api/teddies/'+urlId.slice(1))
+let recup= document.getElementById('details');
+let apiUrl=fetch('http://localhost:3000/api/teddies/'+urlId.slice(1))
 .then(response=>response.json())
 
 //création/implémentation d'éléments 
@@ -9,19 +9,19 @@ apiUrl.then(data=>{
 
     let prix=data.price;
     let quantite=1;
-    const creaTitre=document.createElement('h2');
-    const creaImg=document.createElement('img');
-    const creaPrix=document.createElement('p');
-    const creaDescription=document.createElement('p');
-    const creaId=document.createElement('a');
-    const creaBouton=document.createElement('button');
-    const creaQuantitePlus=document.createElement('button');
-    const creaQuantiteMoins=document.createElement('button');
-    const creaQuantite=document.createElement('p');
-    const creaSelect=document.createElement('select');
-    const creaCouleur=document.createElement('p');
-    const details=document.getElementById('details');
-    const image=document.getElementById('image');
+    let creaTitre=document.createElement('h2');
+    let creaImg=document.createElement('img');
+    let creaPrix=document.createElement('p');
+    let creaDescription=document.createElement('p');
+    let creaId=document.createElement('a');
+    let creaBouton=document.createElement('button');
+    let creaQuantitePlus=document.createElement('button');
+    let creaQuantiteMoins=document.createElement('button');
+    let creaQuantite=document.createElement('p');
+    let creaSelect=document.createElement('select');
+    let creaCouleur=document.createElement('p');
+    let details=document.getElementById('details');
+    let image=document.getElementById('image');
 
     image.appendChild(creaImg);
     details.appendChild(creaTitre);
@@ -86,10 +86,10 @@ apiUrl.then(data=>{
     //récuperation prix et quantité
       alert("Ajouté au panier");
     
-      const recupPrix=document.getElementById("prix").textContent.slice(6);
-      const conversionPrix=parseFloat(recupPrix)*100;
-      const recupQuantite=document.getElementById("quantite").textContent.slice(10);
-      const conversionQuantite=parseFloat(recupQuantite);
+      let recupPrix=document.getElementById("prix").textContent.slice(6);
+      let conversionPrix=parseFloat(recupPrix)*100;
+      let recupQuantite=document.getElementById("quantite").textContent.slice(10);
+      let conversionQuantite=parseFloat(recupQuantite);
       //recuperation selection
       let selectionOption=creaSelect.options[creaSelect.selectedIndex].value;
     

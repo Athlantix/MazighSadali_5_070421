@@ -1,5 +1,5 @@
 
-const recup= document.getElementById('contain');
+let recup= document.getElementById('contain');
 
 // connection a l'api
 const api=fetch('http://localhost:3000/api/teddies')
@@ -8,13 +8,13 @@ const api=fetch('http://localhost:3000/api/teddies')
 // créations des produits 
 api.then(data=>{for (let i=0;i<data.length;i++)
     {
-       const creaFigure=document.createElement('figure');
-       const creaTitre=document.createElement('h2');
-       const creaImg=document.createElement('img');
-       const creaPrix=document.createElement('p');
-       const creaDescription=document.createElement('p');
-       const creaId=document.createElement('a');
-       const creaBouton=document.createElement('button');
+       let creaFigure=document.createElement('figure');
+       let creaTitre=document.createElement('h2');
+       let creaImg=document.createElement('img');
+       let creaPrix=document.createElement('p');
+       let creaDescription=document.createElement('p');
+       let creaId=document.createElement('a');
+       let creaBouton=document.createElement('button');
 
        recup.appendChild(creaFigure);
        creaFigure.appendChild(creaTitre);
