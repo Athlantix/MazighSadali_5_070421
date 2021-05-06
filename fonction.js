@@ -89,7 +89,7 @@ function formValid(){
     else{
       alert("Votre commande va être traitée");
       localStorage.removeItem("produit");
-      //window.location.href = 'remerciement.html';
+      window.location.href = 'remerciement.html';
     }
   
     const formSend = {
