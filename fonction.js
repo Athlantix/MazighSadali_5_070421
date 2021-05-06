@@ -106,6 +106,18 @@ function formValid(){
       product_id.push(recupDetailProduit[i].id);
     }
     //------------------------
+    envoi( formSend,product_id)
+
+  }
+
+  //fonction suppression pannier Dom,localStorage
+  function supprLocalStorage(body,panier){
+    body.removeChild(panier);
+    localStorage.removeItem("produit");
+  }
+  
+  //fonction d'envoi POST
+  function envoi( formSend,product_id){
     //method POST
     fetch("http://localhost:3000/api/teddies", {
    
@@ -126,12 +138,4 @@ function formValid(){
 
 
     //______________
-
   }
-
-  //fonction suppression pannier Dom,localStorage
-  function supprLocalStorage(body,panier){
-    body.removeChild(panier);
-    localStorage.removeItem("produit");
-  }
-  
