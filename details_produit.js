@@ -23,31 +23,20 @@ apiUrl.then(data=>{
     let details=document.getElementById('details');
     let image=document.getElementById('image');
 
-    image.appendChild(creaImg);
-    details.appendChild(creaTitre);
-    details.appendChild(creaDescription);
-    details.appendChild(creaId);
-    details.appendChild(creaQuantite);
-    details.appendChild(creaQuantitePlus);
-    details.appendChild(creaQuantiteMoins);
-    details.appendChild(creaCouleur);
-    details.appendChild(creaSelect);
-    details.appendChild(creaPrix);
-    details.appendChild(creaBouton);
-    creaBouton.appendChild(creaId);
+    //Envoi dans le DOM
 
-
-    //intégration des données API dans le DOM
-    creaDescription.textContent=data.description;
-    creaTitre.textContent=data.name;
-    creaImg.src=data.imageUrl;
-    creaPrix.textContent="Prix: "+data.price.toString().substr(0,2)+","+data.price.toString().substr(2)+" $";
-    creaId.href="produit.html?"+data._id;
-    creaId.textContent="Acheter";
-    creaQuantitePlus.textContent="+";
-    creaQuantiteMoins.textContent="-";
-    creaQuantite.textContent="Quantité: "+quantite;
-    creaCouleur.textContent="Couleur";
+    creation(details,creaTitre,data.name,"textContent");
+    creation(details,creaDescription,data.description,"textContent");
+    creation(image,creaImg,data.imageUrl,"src");
+    creation(details,creaId,"produit.html?"+data._id,"href");
+    creation(details,creaQuantite,"Quantité: "+quantite,"textContent");
+    creation(details,creaQuantitePlus,"+","textContent");
+    creation(details,creaQuantiteMoins,"-","textContent");
+    creation(details,creaCouleur,"Couleur","textContent");
+    creation(details,creaSelect,"","");
+    creation(details,creaPrix,"Prix: "+data.price.toString().substr(0,2)+","+data.price.toString().substr(2)+" $","textContent");
+    creation(details,creaBouton,"","");
+    creation(creaBouton,creaId,"Acheter","textContent");
     creaPrix.id="prix";
     creaQuantite.id="quantite";
 

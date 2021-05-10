@@ -17,21 +17,15 @@ api.then(data=>{for (let i=0;i<data.length;i++)
        let creaBouton=document.createElement('button');
 
        recup.appendChild(creaFigure);
-       creaFigure.appendChild(creaTitre);
-       creaFigure.appendChild(creaImg);
-       creaFigure.appendChild(creaPrix);
-       creaFigure.appendChild(creaDescription);
-       creaFigure.appendChild(creaBouton);
+       creation(creaFigure,creaTitre,data[i].name,"textContent");
+       creation(creaFigure,creaImg,data[i].imageUrl,"src");
+       creation(creaFigure,creaPrix,"Prix: "+data[i].price.toString().substr(0,2)+","+data[i].price.toString().substr(2)+" $"
+       ,"textContent");
+       creation(creaFigure,creaDescription,data[i].description,"textContent");
+       creation(creaFigure,creaBouton,"" ,"");
+       creation(creaBouton,creaId,"produit.html?"+data[i]._id,"href");
        creaFigure.setAttribute("id","figure"+[i]);
-       creaBouton.appendChild(creaId);
-      
-
-        creaDescription.textContent=data[i].description;
-        creaTitre.textContent=data[i].name;
-        creaImg.src=data[i].imageUrl;
-        creaPrix.textContent="Prix: "+data[i].price.toString().substr(0,2)+","+data[i].price.toString().substr(2)+" $";
-        creaId.href="produit.html?"+data[i]._id;
-        creaId.textContent="Détails";
+       creaId.textContent="Détails";
        
     }
     

@@ -105,7 +105,7 @@ function formValid(){
     for (let i=0;i<recupDetailProduit.length;i++){
       product_id.push(recupDetailProduit[i].id);
     }
-    //------------------------
+    //envoi des données
     envoi( formSend,product_id)
 
   }
@@ -139,3 +139,19 @@ function formValid(){
 
     //______________
   }
+
+  function creation(parent,enfant,data,choix){
+      parent.appendChild(enfant);
+      enfant.textContent=data;
+      if(choix=="textContent"){
+        enfant.textContent=data;
+      }
+      else if(choix=="src"){
+        enfant.src=data;
+      }
+      else if(choix=="href"){
+        enfant.href=data;
+      }
+  }
+
+
