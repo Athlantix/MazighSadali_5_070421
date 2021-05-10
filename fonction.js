@@ -15,7 +15,7 @@ function pushLocal(produitRecup,produitPanier){
 
   //fonction verification localStorage
 function verifLocalStorage(produitPanier){
-  
+
         //récupération produit localStorage
         let produitRecup=JSON.parse(localStorage.getItem("produit"));
         //vérification de la présence du même produit, sinon envoi
@@ -58,6 +58,7 @@ function verifLocalStorage(produitPanier){
             pushLocal(produitRecup,produitPanier);
           
           }
+          
   
   }
 
@@ -110,6 +111,7 @@ function formValid(){
   function supprLocalStorage(body,panier){
     body.removeChild(panier);
     localStorage.removeItem("produit");
+    document.getElementById("form").style.display="none";
   }
 
   //fonction d'envoi POST

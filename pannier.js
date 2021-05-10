@@ -1,8 +1,18 @@
+
+
+document.getElementById("form").style.display="none";
 //récup DOM
 const panier=document.getElementById("contain_panier");
 //recup éléments localstorage
 let recupDetailProduit=JSON.parse(localStorage.getItem("produit"));
 let total=0;
+
+if(!recupDetailProduit){
+    document.getElementById("form").style.display="none";
+}
+else{
+    document.getElementById("form").style.display="block";
+}
 //parcours des photographes
 for (let i=0;i<recupDetailProduit.length;i++){
     //creation éléments
