@@ -1,14 +1,9 @@
-
-
 //récup DOM
 const panier=document.getElementById("contain_panier");
-
-
 //recup éléments localstorage
 let recupDetailProduit=JSON.parse(localStorage.getItem("produit"));
-
 let total=0;
-
+//parcours des photographes
 for (let i=0;i<recupDetailProduit.length;i++){
     //creation éléments
     let figure=document.createElement("figure");
@@ -31,15 +26,10 @@ for (let i=0;i<recupDetailProduit.length;i++){
     creation(divData,couleur,"Couleur: "+recupDetailProduit[i].option,"textContent");
     panier.appendChild(figure);
     figure.appendChild(divData);
-
-
-
-    //attribution des données éléments
- 
+    //calcule total
     total+=recupDetailProduit[i].prix;
-
-
-}   //total prix
+}   
+    //total prix DOM
     let creaTotal=document.createElement("p");
     creation(panier,creaTotal,"Total: "+total/100+","+total.toString().substr(-2)+" $","textContent");
     creaTotal.id="total";
@@ -48,7 +38,6 @@ for (let i=0;i<recupDetailProduit.length;i++){
     const bouton=document.createElement("button");
     creation(panier,bouton,"Supprimer","textContent");
 
-
     //bouton event suppression 
     bouton.addEventListener("click",function(){
     let body=document.getElementById("delete");
@@ -56,11 +45,7 @@ for (let i=0;i<recupDetailProduit.length;i++){
 
 })
 
-
-
-//----------Formulaire--------------------
 //fonction validation formulaire
-
 let validation = document.getElementById('valider');
 
 validation.addEventListener("click",function(e){

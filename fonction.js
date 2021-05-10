@@ -13,8 +13,6 @@ function pushLocal(produitRecup,produitPanier){
   localStorage.setItem("produit",JSON.stringify(produitRecup));
 }
 
-    
-  
   //fonction verification localStorage
 function verifLocalStorage(produitPanier){
   
