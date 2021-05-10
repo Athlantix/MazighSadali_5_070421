@@ -86,26 +86,24 @@ function formValid(){
     }
     else{
       alert("Votre commande va être traitée");
-      localStorage.removeItem("produit");
-      window.location.href = 'remerciement.html';
-    }
-  
-    const formSend = {
-      contact: {
+     localStorage.removeItem("produit");
+
+      let contact= {
         firstName: firstname,
         lastName: lastname,
         city: city,
         address: adress + " " + zipcode,
-        email: email,
-      }
+        email: email
     }
-    let product_id=[];
+    let products=[];
+    
     for (let i=0;i<recupDetailProduit.length;i++){
-      product_id.push(recupDetailProduit[i].id);
+      products.push(recupDetailProduit[i].id);
     }
     //envoi des données
-    envoi( formSend,product_id)
-
+    envoi( contact,products);
+   
+  }
   }
 
   //fonction suppression pannier Dom,localStorage
@@ -113,29 +111,40 @@ function formValid(){
     body.removeChild(panier);
     localStorage.removeItem("produit");
   }
-  
+
   //fonction d'envoi POST
-  function envoi( formSend,product_id){
+  function envoi( contact,products){
     //method POST
-    fetch("http://localhost:3000/api/teddies", {
-   
+    console.log("envoi");
+    
+   let order={
     method: "POST",
     body: JSON.stringify({
-        formSend,product_id
+        contact,products
     }),
-
+    
     headers: {
-        "Content-type": "application/json; charset=UTF-8"
+        "Content-type": "application/json",
+        "Accept":"application/json"
     }
-})
+  }
+ 
+  fetch("http://localhost:3000/api/teddies/order",order)
+  .then((resp) => resp.json())
+.then(function(response) {
+
+ localStorage.setItem("numCommande",response.orderId);
+  //response.orderId;
+  window.location.href = 'remerciement.html';
+    console.log(response);
   
-// Convertion JSON
+});
+
+/* Convertion JSON
 .then(response => response.json())
   
-.then(json => console.log(json));
+.then(json => console.log(json)); */
 
-
-    //______________
   }
 
   function creation(parent,enfant,data,choix){
@@ -151,5 +160,4 @@ function formValid(){
         enfant.href=data;
       }
   }
-
 

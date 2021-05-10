@@ -1,10 +1,8 @@
 
 let recup= document.getElementById('contain');
-
 // connection a l'api
 const api=fetch('http://localhost:3000/api/teddies')
 .then(response=> response.json());
-
 // créations des produits 
 api.then(data=>{for (let i=0;i<data.length;i++)
     {
@@ -28,7 +26,6 @@ api.then(data=>{for (let i=0;i<data.length;i++)
        creaId.textContent="Détails";
        
     }
-    
 }).catch(function() {
     recup.textContent="error";
 });

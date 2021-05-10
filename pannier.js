@@ -12,7 +12,6 @@ for (let i=0;i<recupDetailProduit.length;i++){
     let quantite=document.createElement("p");
     let prix=document.createElement("p");
     let couleur=document.createElement("p");
-
     let divData=document.createElement("div");
     let divImg=document.createElement("div");
 
@@ -42,7 +41,6 @@ for (let i=0;i<recupDetailProduit.length;i++){
     bouton.addEventListener("click",function(){
     let body=document.getElementById("delete");
       supprLocalStorage(body,panier);
-
 })
 
 //fonction validation formulaire
@@ -51,7 +49,5 @@ let validation = document.getElementById('valider');
 validation.addEventListener("click",function(e){
  e.preventDefault();
  formValid();
-
-
 })
 
