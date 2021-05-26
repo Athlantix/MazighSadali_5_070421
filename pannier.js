@@ -42,7 +42,7 @@ for (let i=0;i<recupDetailProduit.length;i++){
     let creaTotal=document.createElement("p");
     creation(panier,creaTotal,"Total: "+total/100+","+total.toString().substr(-2)+" $","textContent");
     creaTotal.id="total";
-
+    localStorage.setItem("prixTotal",total/100+","+total.toString().substr(-2));
     //creation bouton
     const bouton=document.createElement("button");
     creation(panier,bouton,"Supprimer","textContent");
