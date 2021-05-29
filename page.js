@@ -3,9 +3,13 @@ let recup= document.getElementById('contain');
 // connection a l'api
 const api=fetch('http://localhost:3000/api/teddies')
 .then(response=> response.json());
+//vérification des données récuperés
+function recupAllProducts (api){api.then(response=>{console.log(response)})};
+recupAllProducts(api);
+
 // créations des produits 
-api.then(data=>{for (let i=0;i<data.length;i++)
-    {
+function displayProducts(api){ api.then(data=>{for (let i=0;i<data.length;i++){
+
        let creaFigure=document.createElement('figure');
        let creaTitre=document.createElement('h2');
        let creaImg=document.createElement('img');
@@ -29,7 +33,9 @@ api.then(data=>{for (let i=0;i<data.length;i++)
 }).catch(function() {
     recup.textContent="error";
 });
+}
 
+displayProducts(api);
 
 
 
